@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataTable Example</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" ></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+</head>
+<body>
+    <h1>Example1- With existing Table with Json Data</h1>
+    <table id='gridDataTable' width='100%'>
+        <thead>
+            <th>
+                Name 
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+                Car
+            </th>
+        </thead>
+        
+    </table>
+    <h1>Example2- With existing Table with Ajax API Json Data</h1>
+    <table id='gridDataTableAjax' width='100%'>
+        <thead>
+            <th>
+                id 
+            </th>
+            <th>
+                userid
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                Completed
+            </th>
+        </thead>
+        
+    </table>
+</body>
+<script>
+    $(function(){
+        var jsondata=[{ "id":0, "age":30, "car":"bmw" },
+                      { "id":1, "age":32, "car":"Maruti" },
+                      { "id":2, "age":30, "car":"great" },
+                      { "id":3, "age":30, "car":"Nyc" },
+                      { "id":4, "age":30, "car":"Super" },
+                        ];
+        $('#gridDataTable').DataTable({
+            "aaData": jsondata,
+             "aoColumns": [
+                 { "mDataProp": "id",title:"ID" },
+                 { "mDataProp": "age" },
+                 { "mDataProp": "car" },
+                
+             ]
+         });
+
+
+         $('#gridDataTableAjax').DataTable({
+            "processing": true,
+            "ajax": {
+                "url":"https://jsonplaceholder.typicode.com/todos/",
+                 "dataSrc":''
+                },
+            "columns": [
+            { "data": "id" },
+            { "data": "userId" },
+            { "data": "title" },
+            { "data": "completed" },
+            
+        ]
+         });
+    })
+</script>
+</html>
