@@ -9,3 +9,4 @@ It is a jQuery Plugin used for a Table to convert to datatable which will have i
 3. Assigning some Json data to the Table and apply DataTable
 4. Searching Sorting Paging all will come default.
 
+https://webdevelopmentknowledge.blogspot.com/2021/01/DataTable%20with%20searching%20sorting-paging-using-jQuery.html
